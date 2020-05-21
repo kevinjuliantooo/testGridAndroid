@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".com.kevin.testgridandroid.normal.MainActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/constraintLayout" android:background="@color/colorPrimary">
+
+        <TextView
+                android:text="Random Image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_title"
+                android:textColor="#ffffff" android:textSize="24sp" android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="36dp" android:visibility="visible"/>
+        <TextView
+                android:text="Choose the image to get Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_description" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                app:layout_constraintStart_toStartOf="@+id/tv_title" app:layout_constraintEnd_toEndOf="@+id/tv_title"
+                android:textColor="#ffffff" android:visibility="visible"/>
+        <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp" tools:srcCompat="@tools:sample/avatars"
+                android:id="@+id/displayedImage" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="8dp" android:visibility="gone"/>
+        <TextView
+                android:text="Author: Dia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_author" android:layout_marginTop="9dp"
+                app:layout_constraintTop_toBottomOf="@+id/displayedImage"
+                app:layout_constraintEnd_toEndOf="@+id/displayedImage"
+                app:layout_constraintStart_toStartOf="@+id/displayedImage" android:textColor="#ffffff"
+                android:visibility="gone"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp" app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/list_image"
+            app:spanCount="3"
+            android:id="@+id/recyclerView"/>
+    <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="16dp" android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
